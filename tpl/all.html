@@ -1,0 +1,59 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<h2 class="elbp_centre"><?= get_string('fullresults', 'block_elbp_bksblive') ?></h2>
+<br>
+
+<div style="width:49%;float:left;">
+    <h2 class="elbp_centre"><?= get_string('initass', 'block_elbp_bksblive') ?></h2>
+    <table class="bksb_results">
+        <tr>
+            <th><?= get_string('assessment', 'block_elbp_bksblive') ?></th>
+            <th><?= get_string('result', 'block_elbp_bksblive') ?></th>
+            <th><?= get_string('date', 'block_elbp_bksblive') ?></th>
+        </tr>
+        
+        <?php foreach((array)$iaresults as $result): ?>
+        <tr>
+            <td><a href="<?= $obj->getSessionResultURL($result->SessionID) ?>" target="_blank"><?= strtoupper($result->Subject) ?></a></td>
+            <td><?= $result->Result ?></td>
+            <td><?= $result->Date ?></td>
+        </tr>
+        <?php endforeach; ?>
+        
+        <?php if (!$iaresults): ?>
+        <tr>
+            <td colspan="3"><?= get_string('noresults', 'block_elbp') ?></td>
+        </tr>
+        <?php endif; ?>
+        
+    </table>
+</div>
+
+<div style="width:49%;float:left;">
+    <h2 class="elbp_centre"><?= get_string('diagass', 'block_elbp_bksblive') ?></h2>
+    <table class="bksb_results">
+        
+        <tr>
+            <th><?= get_string('assessment', 'block_elbp_bksblive') ?></th>
+            <th><?= get_string('result', 'block_elbp_bksblive') ?></th>
+            <th><?= get_string('date', 'block_elbp_bksblive') ?></th>
+        </tr>
+        
+        <?php foreach((array)$diagresults as $result): ?>
+        <tr>
+            <td><a href="<?= $obj->getSessionResultURL($result->Session_ID) ?>" target="_blank"><?= strtoupper($result->Subject) ?></a></td>
+            <td><?= round($result->Result) ?>%</td>
+            <td><?= $result->Date ?></td>
+        </tr>
+        <?php endforeach; ?>
+        
+        <?php if (!$iaresults): ?>
+        <tr>
+            <td colspan="3"><?= get_string('noresults', 'block_elbp') ?></td>
+        </tr>
+        <?php endif; ?>
+        
+    </table>
+</div>
+
+<br style="clear:both;">

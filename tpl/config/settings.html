@@ -1,0 +1,68 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<form action='' method='post'>
+    
+   <h2><?= get_string('assessmentids', 'block_elbp_bksblive') ?></h2>
+   <p><?= get_string('assessmentids:desc', 'block_elbp_bksblive') ?></p>
+   
+   <small><strong><?= get_string('engia', 'block_elbp_bksblive') ?></strong> - <?= get_string('iddesc', 'block_elbp_bksblive') ?></small><br>
+   <input type='text' class='elbp_smallish' name='assessment_id_IA_ENG' value='<?= $BKSB->getAssessmentID('IA', 'ENG') ?>' />
+    
+   <br><br>
+   
+   <small><strong><?= get_string('engiaold', 'block_elbp_bksblive') ?></strong> - <?= get_string('iddesc', 'block_elbp_bksblive') ?></small><br>
+   <input type='text' class='elbp_smallish' name='assessment_id_IA_ENG_OLD' value='<?= $BKSB->getAssessmentID('IA', 'ENG_OLD') ?>' />
+    
+   <br><br>
+   
+   <small><strong><?= get_string('mathsia', 'block_elbp_bksblive') ?></strong> - <?= get_string('iddesc', 'block_elbp_bksblive') ?></small><br>
+   <input type='text' class='elbp_smallish' name='assessment_id_IA_MATHS' value='<?= $BKSB->getAssessmentID('IA', 'MATHS') ?>' />
+    
+   <br><br>
+   
+   <small><strong><?= get_string('mathsiaold', 'block_elbp_bksblive') ?></strong> - <?= get_string('iddesc', 'block_elbp_bksblive') ?></small><br>
+   <input type='text' class='elbp_smallish' name='assessment_id_IA_MATHS_OLD' value='<?= $BKSB->getAssessmentID('IA', 'MATHS_OLD') ?>' />
+    
+   <br><br>
+   
+   <small><strong><?= get_string('ictia', 'block_elbp_bksblive') ?></strong> - <?= get_string('iddesc', 'block_elbp_bksblive') ?></small><br>
+   <input type='text' class='elbp_smallish' name='assessment_id_IA_ICT' value='<?= $BKSB->getAssessmentID('IA', 'ICT') ?>' />
+    
+   <br><br>
+   
+   <small><strong><?= get_string('enggcsetest', 'block_elbp_bksblive') ?></strong> - <?= get_string('iddesc', 'block_elbp_bksblive') ?></small><br>
+   <input type='text' class='elbp_smallish' name='assessment_id_GCSE_ENG' value='<?= $BKSB->getAssessmentID('GCSE', 'ENG') ?>' />
+           
+   <br><br>
+   
+   <small><strong><?= get_string('mathsgcsetest', 'block_elbp_bksblive') ?></strong> - <?= get_string('iddesc', 'block_elbp_bksblive') ?></small><br>
+   <input type='text' class='elbp_smallish' name='assessment_id_GCSE_MATHS' value='<?= $BKSB->getAssessmentID('GCSE', 'MATHS') ?>' />
+           
+          
+          
+          
+          
+          
+   <p class='elbp_centre'><input type="submit" name="submitconfig" value="<?= get_string('save', 'block_elbp') ?>" /></p>
+    
+</form>
+
+<br><br>
+
+<h2><?= get_string('bksbhooks', 'block_elbp_bksblive') ?></h2>
+<p><?= $string['hooks:desc']?></p>
+
+<? \elbp_display_hooks_form($BKSB); ?>
+
+
+<script>
+
+function showHooks(pluginID)
+{
+    
+    $('.availablehooks').css('display', 'none');
+    $('#hooks_' + pluginID).slideToggle('slow');
+    
+}
+    
+</script>

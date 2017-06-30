@@ -1,0 +1,45 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<table class="elbp_summary_table">
+    <tbody>
+      <tr>
+          <td class="elbp_summary_title" style="background-image:url('<?= $CFG->wwwroot ?>/<?= $obj->getPath() ?>/pix/icon.png');">
+            <?= get_string('assessmentsummary', 'block_elbp_bksblive') ?>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+<small><?= get_string('mostrecentia', 'block_elbp_bksblive') ?></small>
+
+<table class="elbp_summary_table">
+    <tr class="elbp_bksb_th">
+        <th><?= get_string('assessment', 'block_elbp_bksblive') ?></th>
+        <th><?= get_string('result', 'block_elbp_bksblive') ?></th>
+        <th><?= get_string('date', 'block_elbp_bksblive') ?></th>
+    </tr>
+    <tr>
+        <td><?= get_string('english', 'block_elbp_bksblive') ?></td>
+        <td><?= ($ia->EnglishResult) ? $ia->EnglishResult : '-' ?></td>
+        <td><?= ($ia->EnglishDate) ? $ia->EnglishDate : '-' ?></td>
+    </tr>
+    <tr>
+        <td><?= get_string('maths', 'block_elbp_bksblive') ?></td>
+        <td><?= ($ia->MathsResult) ? $ia->MathsResult : '-' ?></td>
+        <td><?= ($ia->MathsDate) ? $ia->MathsDate : '-' ?></td>
+    </tr>
+    <tr>
+        <td><?= get_string('ict', 'block_elbp_bksblive') ?></td>
+        <td><?= ($ia->ICTResult) ? $ia->ICTResult : '-' ?></td>
+        <td><?= ($ia->ICTDate) ? $ia->ICTDate : '-' ?></td>
+    </tr>
+    <tr>
+        <td><?= get_string('enggcsetest', 'block_elbp_bksblive') ?></td>
+        <td><?= ($ia->EnglishGCSEResult) ? $ia->EnglishGCSEResult : '-' ?></td>
+        <td><?= ($ia->EnglishGCSEDate) ? $ia->EnglishGCSEDate : '-' ?></td>
+    </tr>
+    <tr>
+        <td><?= get_string('mathsgcsetest', 'block_elbp_bksblive') ?></td>
+        <td><?= ($ia->MathsGCSEResult) ? $ia->MathsGCSEResult : '-' ?></td>
+        <td><?= ($ia->MathsGCSEDate) ? $ia->MathsGCSEDate : '-' ?></td>
+    </tr>
+</table>

@@ -1,0 +1,8 @@
+<?php if(!defined('ELBP')) exit; ?>
+<ul class="elbp_tabrow">
+    <li class="elbp_view_link selected"><a href="#" onclick="ELBP.BKSBLive.load_display('all', this);return false;"><?= get_string('allresults', 'block_elbp_bksblive') ?></a>
+    <li class="elbp_view_link"><a href="#" onclick="ELBP.BKSBLive.load_display('best', this);return false;"><?= get_string('bestresults', 'block_elbp_bksblive') ?></a>
+    <li class="elbp_view_link"><a href="#" onclick="ELBP.BKSBLive.load_display('plan', this);return false;"><?= get_string('learningplan', 'block_elbp_bksblive') ?></a>
+</ul>
+<br>
+<div id="elbp_bksb_content"><script>ELBP.BKSBLive.load_display('all');</script></div>

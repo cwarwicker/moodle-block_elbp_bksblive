@@ -1,0 +1,22 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<ul class="elbp_tabrow">
+
+    <?php if ($tabs): ?>
+    
+        <?php foreach($tabs as $tab): ?>
+        
+            <li class="elbp_view_link_sub"><a href="#" onclick="ELBP.BKSBLive.load_plan('<?= $tab['Subject'] ?>', '<?= $tab['Level'] ?>', this);return false;"><?= $tab['Subject'] ?> <?= $tab['Level'] ?></a>
+        
+        <?php endforeach; ?>
+    
+    <?php endif; ?>
+
+</ul>
+
+<h2 class="elbp_centre"><?= get_string('learningplan', 'block_elbp_bksblive') ?></h2>
+<br>
+
+<div id="bksblive_topics_content">
+    
+</div>

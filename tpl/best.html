@@ -1,0 +1,104 @@
+<?php if(!defined('ELBP')) exit; ?>
+
+<h2 class="elbp_centre"><?= get_string('bestresults', 'block_elbp_bksblive') ?></h2>
+<br>
+
+<div style="width:49%;float:left;">
+    <h2 class="elbp_centre"><?= get_string('initass', 'block_elbp_bksblive') ?></h2>
+    <table class="bksb_results">
+        <tr>
+            <th><?= get_string('assessment', 'block_elbp_bksblive') ?></th>
+            <th><?= get_string('result', 'block_elbp_bksblive') ?></th>
+            <th><?= get_string('date', 'block_elbp_bksblive') ?></th>
+        </tr>
+
+        <tr>
+            <td>
+                <?php if($iaresults && array_key_exists('E', $iaresults)): ?>
+                    <a href="<?= $obj->getSessionResultURL($iaresults['E']->SessionID) ?>" target="_blank"><?= get_string('english', 'block_elbp_bksblive') ?></a></td>
+                <?php else: ?>
+                    <?= get_string('english', 'block_elbp_bksblive') ?>
+                <?php endif; ?>
+            <td><?= ($iaresults && array_key_exists('E', $iaresults)) ? $iaresults['E']->Result : '-' ?></td>
+            <td><?= ($iaresults && array_key_exists('E', $iaresults)) ? $iaresults['E']->Date : '-' ?></td>
+        </tr>
+        
+        <tr>
+            <td>
+                <?php if($iaresults && array_key_exists('M', $iaresults)): ?>
+                    <a href="<?= $obj->getSessionResultURL($iaresults['M']->SessionID) ?>" target="_blank"><?= get_string('maths', 'block_elbp_bksblive') ?></a></td>
+                <?php else: ?>
+                    <?= get_string('maths', 'block_elbp_bksblive') ?>
+                <?php endif; ?>
+            <td><?= ($iaresults && array_key_exists('M', $iaresults)) ? $iaresults['M']->Result : '-' ?></td>
+            <td><?= ($iaresults && array_key_exists('M', $iaresults)) ? $iaresults['M']->Date : '-' ?></td>
+        </tr>
+        
+        <tr>
+            <td>
+                <?php if($iaresults && array_key_exists('I', $iaresults)): ?>
+                    <a href="<?= $obj->getSessionResultURL($iaresults['I']->SessionID) ?>" target="_blank"><?= get_string('ict', 'block_elbp_bksblive') ?></a></td>
+                <?php else: ?>
+                    <?= get_string('ict', 'block_elbp_bksblive') ?>
+                <?php endif; ?>
+            <td><?= ($iaresults && array_key_exists('I', $iaresults)) ? $iaresults['I']->Result : '-' ?></td>
+            <td><?= ($iaresults && array_key_exists('I', $iaresults)) ? $iaresults['I']->Date : '-' ?></td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+                <?php if($iaresults && array_key_exists('EGCSE', $iaresults)): ?>
+                    <a href="<?= $obj->getSessionResultURL($iaresults['EGCSE']->SessionID) ?>" target="_blank"><?= get_string('enggcsetest', 'block_elbp_bksblive') ?></a></td>
+                <?php else: ?>
+                    <?= get_string('enggcsetest', 'block_elbp_bksblive') ?>
+                <?php endif; ?>
+            <td><?= ($iaresults && array_key_exists('EGCSE', $iaresults)) ? $iaresults['EGCSE']->Result : '-' ?></td>
+            <td><?= ($iaresults && array_key_exists('EGCSE', $iaresults)) ? $iaresults['EGCSE']->Date : '-' ?></td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+                <?php if($iaresults && array_key_exists('MGCSE', $iaresults)): ?>
+                    <a href="<?= $obj->getSessionResultURL($iaresults['MGCSE']->SessionID) ?>" target="_blank"><?= get_string('mathsgcsetest', 'block_elbp_bksblive') ?></a></td>
+                <?php else: ?>
+                    <?= get_string('mathsgcsetest', 'block_elbp_bksblive') ?>
+                <?php endif; ?>
+            <td><?= ($iaresults && array_key_exists('MGCSE', $iaresults)) ? $iaresults['MGCSE']->Result : '-' ?></td>
+            <td><?= ($iaresults && array_key_exists('MGCSE', $iaresults)) ? $iaresults['MGCSE']->Date : '-' ?></td>
+        </tr>
+        
+        
+    </table>
+</div>
+
+<div style="width:49%;float:left;">
+    <h2 class="elbp_centre"><?= get_string('diagass', 'block_elbp_bksblive') ?></h2>
+    <table class="bksb_results">
+        <tr>
+            <th><?= get_string('assessment', 'block_elbp_bksblive') ?></th>
+            <th><?= get_string('result', 'block_elbp_bksblive') ?></th>
+            <th><?= get_string('date', 'block_elbp_bksblive') ?></th>
+        </tr>
+        
+        <?php if ($diagresults): ?>
+            <?php foreach($diagresults as $subject => $bestResult): ?>
+            <tr>
+                <td>
+                    <?php if(isset($bestResult->Session_ID)): ?>
+                        <a href="<?= $obj->getSessionResultURL($bestResult->Session_ID) ?>" target="_blank"><?= $bestResult->Subject ?></a>
+                    <?php else: ?>
+                        <?= $subject ?>
+                    <?php endif; ?>
+                </td>
+                <td><?= (isset($bestResult->Result)) ? $bestResult->Result . '%' : '-' ?></td>
+                <td><?= (isset($bestResult->Date)) ? $bestResult->Date : '-' ?></td>                
+            </tr>
+            <?php endforeach; ?>
+       <?php endif; ?>
+        
+    </table>
+</div>
+
+<br style="clear:both;">

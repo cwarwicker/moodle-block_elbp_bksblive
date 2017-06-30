@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <XMLDB PATH="blocks/elbp_bksblive/db" VERSION="20151221" COMMENT="XMLDB file for Moodle blocks/elbp_bksblive">
+    <TABLES>
+      <TABLE NAME="block_elbp_bksblive" COMMENT="Default comment for block_elbp_bksblive, please edit me">
+        <FIELDS>
+          <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+        </FIELDS>
+        <KEYS>
+          <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+        </KEYS>
+      </TABLE>
+    </TABLES>
+  </XMLDB>

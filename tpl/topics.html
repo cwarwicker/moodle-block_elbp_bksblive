@@ -1,0 +1,66 @@
+<?php if ($topics): ?>
+
+<div class="elbp_target_bar">
+    <div class="progress-bar orange stripes">
+        <div style="width:<?= $progress ?>%"></div>
+    </div>
+    <br>
+    <p class='elbp_centre'><?= $progress ?>% <?= get_string('complete') ?></p>
+</div>
+
+<br><br>
+
+    <?php foreach($topics as $status => $statusTopics): ?>
+
+        <div class="bksblive_topic bksblive_topic_<?= $status ?>">
+
+            <div class="bksblive_topic_header">
+                <?= get_string('status:'.$status, 'block_elbp_bksblive') ?>
+            </div>
+            
+            <div class="bksblive_topic_content">
+                
+                <?php if ($statusTopics): ?>
+                
+                    <?php foreach($statusTopics as $topic): ?>
+                    
+                        <div class="bksblive_topic_topic">
+                            
+                            <div class="bksblive_topic_topic_header elbp_bksblive_topic_box_<?= $status ?>">
+                                <?= htmlentities($topic['Title']) ?> 
+                                
+                                <?php if($topic['TutorMarkComplete']): ?>
+                                    <img src="<?= $CFG->wwwroot ?>/blocks/elbp_bksblive/pix/ticktutor.png" alt="<?= get_string('complete') ?>" title="<?= get_string('complete') ?>" />
+                                <?php endif; ?>
+                            
+                            </div>
+                            <div class="bksblive_topic_topic_content">
+                                
+                                <p><?= $topic['DisplayLong'] ?></p>
+                                
+                                <a href="<?= $obj->getTopicURL($topic) ?>" target="_blank">
+                                    <button><?= get_string('view') ?></button>
+                                </a>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                    
+                    <?php endforeach; ?>
+                    
+                    <br class="elbp_cl" />
+                
+                <?php else: ?>
+                
+                    <p><?= $string['noresults'] ?></p>
+                
+                <?php endif; ?>
+                
+            </div>
+
+        </div>
+
+    <?php endforeach; ?>
+    
+<?php endif; ?>
