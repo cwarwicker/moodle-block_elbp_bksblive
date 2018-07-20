@@ -1,3 +1,8 @@
+```diff
+THIS PLUGIN IS DISCONTINUED AND WILL RECEIVE NO FUTURE UPDATES
+IF YOU WISH TO CONNECT YOUR ELBP TO A BKSB SERVER, CONSIDER USING A CUSTOM (EXTERNAL DB) PLUGIN
+```
+
 # ELBP BKSBLive Plugin
 
 This is a plugin for the ELBP block, which allows you to view a student's BKSB results and link to your BKSBLive portal.
